@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block py-2 px-10 rounded-md;
+  }
+  .customContainer {
+    @apply w-[1280px] mx-auto;
+  }
+  .theNav {
+    @apply absolute block bg-light left-0 w-full top-[59px] h-0 md:h-auto overflow-hidden md:static transition-all;
+  }
+  .theNav.active {
+    @apply h-[260px] md:h-auto;
+  }
+  .theNav ul {
+    @apply block w-full md:w-auto md:flex text-center;
+  }
+  .theNav ul li {
+    @apply border-b border-b-customGray w-full lg:w-auto md:border-none;
+  }
+  .toggleNav span {
+    @apply block w-[10px] h-[3px] bg-dark transition-all;
+  }
+  .toggleNav span:nth-child(2) {
+    @apply w-[px] absolute top-0 left-[50%] rounded-r-full;
+  }
+  .toggleNav span:nth-child(1) {
+    @apply w-[px] absolute top-0 rounded-l-full;
+  }
+  .toggleNav span:nth-child(4) {
+    @apply w-[px] absolute bottom-0 rounded-l-full;
+  }
+  .toggleNav span:nth-child(3) {
+    @apply w-[20px] my-1 rounded-full;
+  }
+  .toggleNav span:nth-child(5) {
+    @apply w-[10px] absolute bottom-0 left-[50%] rounded-r-full;
+  }
+  .toggleNav.active span:nth-child(5) {
+    @apply w-[13px] absolute bottom-0 rotate-45 -translate-y-[4px]  -translate-x-[1px] left-[50%] rounded-full;
+  }
+  .toggleNav.active span:nth-child(4) {
+    @apply w-[13px] absolute bottom-0 -rotate-45 -translate-y-[4px]   rounded-full;
+  }
+  .toggleNav.active span:nth-child(1) {
+    @apply w-[13px] absolute top-0 rotate-45 translate-y-[4px]   rounded-full;
+  }
+  .toggleNav.active span:nth-child(2) {
+    @apply w-[13px] absolute top-0 -rotate-45 translate-y-[4px]  -translate-x-[1px]  rounded-full;
+  }
+  .toggleNav.active span:nth-child(3) {
+    @apply opacity-0;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .customContainer {
+    @apply w-full px-10;
+  }
+}
