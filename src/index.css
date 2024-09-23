@@ -10,17 +10,35 @@
     padding: 0;
     box-sizing: border-box;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+  input[type="text"]:focus {
+    @apply outline-none;
+  }
+  input[type="text"] {
+    @apply p-1 text-[#5b5b5b] text-sm border-customGray border w-full h-[36px] mb-1;
+  }
+  textarea:focus {
+    @apply outline-none p-1 text-sm;
+  }
+  textarea {
+    @apply p-1 text-[#5b5b5b]  text-sm border-customGray border w-full min-h-[150px] mb-1 resize-none;
+  }
 }
 
 @layer components {
   .btn {
     @apply inline-block py-2 px-10 rounded-md;
   }
+  .btn:disabled {
+    @apply bg-customGray border-customGray hover:text-light;
+  }
   .customContainer {
     @apply w-[1280px] mx-auto;
   }
   .theNav {
-    @apply absolute block bg-light left-0 w-full top-[59px] h-0 md:h-auto overflow-hidden md:static transition-all;
+    @apply absolute block bg-light left-0 w-full top-[59px] h-0 md:h-auto md:static transition-all;
   }
   .theNav.active {
     @apply h-[260px] md:h-auto;
@@ -30,6 +48,12 @@
   }
   .theNav ul li {
     @apply border-b border-b-customGray w-full lg:w-auto md:border-none;
+  }
+  .navLink {
+    @apply text-[#CCCCCC];
+  }
+  .navLink.active {
+    @apply border-b text-dark;
   }
   .toggleNav span {
     @apply block w-[10px] h-[3px] bg-dark transition-all;
@@ -64,6 +88,13 @@
   .toggleNav.active span:nth-child(3) {
     @apply opacity-0;
   }
+  .btnImgUpload button {
+    @apply text-2xl text-light bg-dark bg-opacity-50 transition-all opacity-0 group-hover:opacity-100 w-full grid place-items-center h-full absolute top-0 left-0;
+  }
+}
+
+.addShadow {
+  box-shadow: 0px 0px 9px 3px rgb(207, 208, 212, 0.85);
 }
 
 @media screen and (max-width: 1366px) {

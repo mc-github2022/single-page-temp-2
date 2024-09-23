@@ -1,0 +1,35 @@
+RewriteEngine On
+# use for authentication
+RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+Header set Access-Control-Allow-Origin *
+
+RewriteRule ^upload-photo$ core/upload-photo.php [L]
+
+
+#Header
+RewriteRule ^header-content$ controllers/developer/header/webHeader.php [L]
+RewriteRule ^header-content/([0-9]+)$ controllers/developer/header/webHeader.php?headerid=$1 [L]
+
+
+#About
+RewriteRule ^about-content$ controllers/developer/about/webAbout.php [L]
+RewriteRule ^about-content/([0-9]+)$ controllers/developer/about/webAbout.php?aboutid=$1 [L]
+
+
+#Services
+RewriteRule ^service-content$ controllers/developer/service/webService.php [L]
+RewriteRule ^service-content/([0-9]+)$ controllers/developer/service/webService.php?serviceid=$1 [L]
+
+
+#Services
+RewriteRule ^activity-content$ controllers/developer/activity/webActivity.php [L]
+RewriteRule ^activity-content/([0-9]+)$ controllers/developer/activity/webActivity.php?activityid=$1 [L]
+
+
+#Footer
+RewriteRule ^contact-content$ controllers/developer/footer/webFooter.php [L]
+RewriteRule ^contact-content/([0-9]+)$ controllers/developer/footer/webFooter.php?contactid=$1 [L]
